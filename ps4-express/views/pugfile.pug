@@ -1,25 +1,23 @@
-<!-- views/template.ejs or views/template.pug -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>PS4 API Demo</title>
-</head>
-<body>
-    <h1>PS4 API Demo</h1>
-    <form action="/ps4/promises" method="post">
-        <label for="city">Enter City:</label>
-        <input type="text" id="city" name="city" required>
-        <button type="submit">Fetch Data with Promises</button>
-    </form>
-    <form action="/ps4/asyncawait" method="post">
-        <label for="city">Enter City:</label>
-        <input type="text" id="city" name="city" required>
-        <button type="submit">Fetch Data with Async/Await</button>
-    </form>
-    <form action="/ps4/callbacks" method="post">
-        <label for="city">Enter City:</label>
-        <input type="text" id="city" name="city" required>
-        <button type="submit">Fetch Data with Callbacks</button>
-    </form>
-</body>
-</html>
+// views/template.pug
+doctype html
+html
+  head
+    title Last.fm API Demo
+  body
+    h1 Last.fm API Demo
+    form(action='/ps4/promises', method='post')
+      label(for='artist') Enter Artist:
+      input(type='text', id='artist', name='artist', required)
+      button(type='submit') Fetch Data with Promises
+    form(action='/ps4/asyncawait', method='post')
+      label(for='artist') Enter Artist:
+      input(type='text', id='artist', name='artist', required)
+      button(type='submit') Fetch Data with Async/Await
+    form(action='/ps4/callbacks', method='post')
+      label(for='artist') Enter Artist:
+      input(type='text', id='artist', name='artist', required)
+      button(type='submit') Fetch Data with Callbacks
+    if data
+      pre
+        code
+          | #{JSON.stringify(data, null, 2)}
