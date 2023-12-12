@@ -1,0 +1,12 @@
+<!-- new file for ps8 -->
+<form (ngSubmit)="search()" #searchForm="ngForm">
+    <div class="form-group">
+      <input type="text" class="form-control" id="searchTerm" name="searchTerm" required minlength="2" [(ngModel)]="term">
+      <div *ngIf="searchForm.controls.searchTerm.invalid && (searchForm.controls.searchTerm.dirty || searchForm.controls.searchTerm.touched)">
+        <small class="text-danger" *ngIf="searchForm.controls.searchTerm.errors.required">Search term is required.</small>
+        <small class="text-danger" *ngIf="searchForm.controls.searchTerm.errors.minlength">Search term must be at least 2 characters.</small>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="searchForm.invalid">Query</button>
+  </form>
+  
